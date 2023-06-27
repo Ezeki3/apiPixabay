@@ -11,7 +11,11 @@ function validarFormulario(e){
   const terminoBusqueda = document.querySelector('#termino').value;
 
   if (terminoBusqueda.trim() === ''){
-    console.log("Debes ingresar un término de búsqueda");
+    mostrarAlerta("Debes ingresar un término de búsqueda");
     return;
   }
+}
+
+function mostrarAlerta(mensaje){
+  console.log(mensaje);
 }
