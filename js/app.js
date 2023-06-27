@@ -43,9 +43,19 @@ function mostrarAlerta(mensaje) {
 }
 
 function buscarImagenes(termino) {
+
+  terminoFormateado = termino.replace(/\s/g, '+');
+
   const key = '37891925-110b570b9dd1a6baf8eb82541';
   const url = `https://pixabay.com/api/?key=${key}&q=${termino}`;
+
   fetch(url)
     .then(respuesta => respuesta.json())
-    .then(resultado => console.log(resultado.hits))
+    .then(resultado => {
+      mostrarImagenes(resultado.hits)
+    })
+}
+
+function mostrarImagenes(imagenes) {
+  console.log(imagenes);
 }
