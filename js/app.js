@@ -14,6 +14,9 @@ function validarFormulario(e) {
     mostrarAlerta("Debes ingresar un término de búsqueda");
     return;
   }
+
+  buscarImagenes(terminoBusqueda);
+
 }
 
 function mostrarAlerta(mensaje) {
@@ -26,9 +29,9 @@ function mostrarAlerta(mensaje) {
       'max-w-lg', 'mx-auto', 'mt-6', 'text-center');
 
     alerta.innerHTML = `
-    <strong class="font-bold">Error!</strong>
-    <span class="block sm:inline">${mensaje}</span>
-  `;
+      <strong class="font-bold">Error!</strong>
+      <span class="block sm:inline">${mensaje}</span>
+    `;
 
     formulario.appendChild(alerta);
 
@@ -37,4 +40,12 @@ function mostrarAlerta(mensaje) {
     }, 3000);
   }
 
+}
+
+function buscarImagenes(termino) {
+  const key = '37891925-110b570b9dd1a6baf8eb82541';
+  const url = `https://pixabay.com/api/?key=${key}&q=${termino}`;
+  fetch(url)
+    .then(respuesta => respuesta.json())
+    .then(resultado => console.log(resultado.hits))
 }
