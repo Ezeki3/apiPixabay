@@ -58,4 +58,18 @@ function buscarImagenes(termino) {
 
 function mostrarImagenes(imagenes) {
   console.log(imagenes);
+
+  while (resultado.firstChild) {
+    resultado.removeChild(resultado.lastChild);
+  }
+
+  // Iterar sobre el arreglo  de imagenes y construimos el html
+  imagenes.forEach(imagen => {
+    const {previewURL} = imagen;
+
+    resultado.innerHTML += `
+      <img class=" w-full" src="${previewURL}">
+    `
+    
+  });
 }
