@@ -47,7 +47,7 @@ function buscarImagenes(termino) {
   terminoFormateado = termino.replace(/\s/g, '+');
 
   const key = '37891925-110b570b9dd1a6baf8eb82541';
-  const url = `https://pixabay.com/api/?key=${key}&q=${termino}`;
+  const url = `https://pixabay.com/api/?key=${key}&q=${termino}&per_page=100`;
 
   fetch(url)
     .then(respuesta => respuesta.json())
