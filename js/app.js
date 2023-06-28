@@ -65,11 +65,14 @@ function mostrarImagenes(imagenes) {
 
   // Iterar sobre el arreglo  de imagenes y construimos el html
   imagenes.forEach(imagen => {
-    const {previewURL} = imagen;
+
+    const {previewURL,likes, views, largeImageURL} = imagen;
 
     resultado.innerHTML += `
-      <img class=" w-full" src="${previewURL}">
+      <div class="w-1/2 md:w-1/3 lg:w-1/4">
+        <img class=" w-full" src="${previewURL}">
+      </div>
     `
-    
+
   });
 }
