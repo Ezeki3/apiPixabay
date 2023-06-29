@@ -60,14 +60,13 @@ function buscarImagenes() {
     .then(respuesta => respuesta.json())
     .then(resultado => {
       totalPaginas = calcularPaginas(resultado.totalHits);
-      console.log(totalPaginas);
       mostrarImagenes(resultado.hits)
     })
 }
 
 // Generador que va a registrar la cantidad de elementos segun las paginas
 function* crearPaginador(total) {
-  console.log(total);
+
   for (let i = 1; i <= total; i++) {
     yield i;
 
@@ -79,7 +78,6 @@ function calcularPaginas(total) {
 }
 
 function mostrarImagenes(imagenes) {
-  // console.log(imagenes);
 
   limpiarHtml(resultado);
   limpiarHtml(paginacionDiv);
@@ -113,6 +111,7 @@ function mostrarImagenes(imagenes) {
   imprimirPaginador();
 
 }
+
 function limpiarHtml(resultado) {
   while (resultado.firstChild) {
     resultado.removeChild(resultado.lastChild);
