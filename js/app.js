@@ -79,9 +79,8 @@ function calcularPaginas(total) {
 function mostrarImagenes(imagenes) {
   // console.log(imagenes);
 
-  while (resultado.firstChild) {
-    resultado.removeChild(resultado.lastChild);
-  }
+  limpiarHtml(resultado);
+  limpiarHtml(paginacionDiv);
 
   // Iterar sobre el arreglo  de imagenes y construimos el html
   imagenes.forEach(imagen => {
@@ -111,6 +110,11 @@ function mostrarImagenes(imagenes) {
 
   imprimirPaginador();
 
+}
+function limpiarHtml(resultado) {
+  while (resultado.firstChild) {
+    resultado.removeChild(resultado.lastChild);
+  }
 }
 
 function imprimirPaginador() {
