@@ -81,6 +81,10 @@ function calcularPaginas(total) {
 
 function mostrarImagenes(imagenes) {
 
+  if (imagenes.length === 0) {
+    mostrarAlerta('SIN RESULTADOS');
+  }
+
   limpiarHtml(resultado);
   limpiarHtml(paginacionDiv);
 
