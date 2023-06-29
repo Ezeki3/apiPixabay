@@ -137,7 +137,8 @@ function imprimirPaginador() {
 
     boton.onclick = () => {
       paginaActual = value;
-      console.log(paginaActual);
+
+      buscarImagenes();
     }
     paginacionDiv.appendChild(boton);
 
