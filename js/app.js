@@ -5,6 +5,7 @@ const paginacionDiv = document.querySelector('#paginacion');
 const registroPagina = 40;
 let totalPaginas;
 let iterador;
+let paginaActual = 1;
 
 window.onload = () => {
   formulario.addEventListener('submit', validarFormulario);
@@ -20,7 +21,7 @@ function validarFormulario(e) {
     return;
   }
 
-  buscarImagenes(terminoBusqueda);
+  buscarImagenes();
 
 }
 
@@ -47,12 +48,13 @@ function mostrarAlerta(mensaje) {
 
 }
 
-function buscarImagenes(termino) {
+function buscarImagenes() {
 
+  const termino = document.querySelector('#termino').value;
   terminoFormateado = termino.replace(/\s/g, '+');
 
   const key = '37891925-110b570b9dd1a6baf8eb82541';
-  const url = `https://pixabay.com/api/?key=${key}&q=${termino}&per_page=${registroPagina}`;
+  const url = `https://pixabay.com/api/?key=${key}&q=${termino}&per_page=${registroPagina}&page=${paginaActual}`;
 
   fetch(url)
     .then(respuesta => respuesta.json())
@@ -133,6 +135,10 @@ function imprimirPaginador() {
     boton.textContent = value;
     boton.classList.add('siguiente', 'bg-yellow-400', 'px-4', 'py-1', 'mr-2', 'font-bold', 'mb-3', 'rounded');
 
+    boton.onclick = () => {
+      paginaActual = value;
+      console.log(paginaActual);
+    }
     paginacionDiv.appendChild(boton);
 
   }
