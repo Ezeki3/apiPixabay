@@ -131,7 +131,7 @@ function imprimirPaginador() {
     boton.href = '#';
     boton.dataset.pagina = value;
     boton.textContent = value;
-    boton.classList.add('siguiente', 'bg-yellow-400', 'px-4', 'py-1', 'mr-2', 'font-bold', 'mb-10', 'uppercase', 'rounded');
+    boton.classList.add('siguiente', 'bg-yellow-400', 'px-4', 'py-1', 'mr-2', 'font-bold', 'mb-3', 'rounded');
 
     paginacionDiv.appendChild(boton);
 
