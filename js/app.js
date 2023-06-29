@@ -56,6 +56,8 @@ function buscarImagenes() {
   const key = '37891925-110b570b9dd1a6baf8eb82541';
   const url = `https://pixabay.com/api/?key=${key}&q=${termino}&per_page=${registroPagina}&page=${paginaActual}`;
 
+  Spinner()
+
   fetch(url)
     .then(respuesta => respuesta.json())
     .then(resultado => {
@@ -144,3 +146,26 @@ function imprimirPaginador() {
   }
 }
 
+
+function Spinner() {
+
+  const divSpinner = document.createElement('div');
+  divSpinner.classList.add('sk-fading-circle');
+
+  divSpinner.innerHTML = `
+    <div class="sk-circle1 sk-circle"></div>
+    <div class="sk-circle2 sk-circle"></div>
+    <div class="sk-circle3 sk-circle"></div>
+    <div class="sk-circle4 sk-circle"></div>
+    <div class="sk-circle5 sk-circle"></div>
+    <div class="sk-circle6 sk-circle"></div>
+    <div class="sk-circle7 sk-circle"></div>
+    <div class="sk-circle8 sk-circle"></div>
+    <div class="sk-circle9 sk-circle"></div>
+    <div class="sk-circle10 sk-circle"></div>
+    <div class="sk-circle11 sk-circle"></div>
+    <div class="sk-circle12 sk-circle"></div>
+  `;
+
+  resultado.appendChild(divSpinner);
+}
