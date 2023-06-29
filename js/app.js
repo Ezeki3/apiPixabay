@@ -108,6 +108,11 @@ function mostrarImagenes(imagenes) {
 
   });
 
+  imprimirPaginador();
+
+}
+
+function imprimirPaginador() {
   iterador = crearPaginador(totalPaginas);
 }
 
